@@ -10,5 +10,5 @@ acc = metric(1);
 nmi = metric(2);
 f1 = metric(3);
 ari = metric(5);
-disp(sprintf('acc: %0.4f\tnmi:%.4f', acc, nmi));
+disp(sprintf('acc: %0.4f\tnmi:%.4f \tpur:%.4f', acc*100, nmi*100,f1*100));
 end

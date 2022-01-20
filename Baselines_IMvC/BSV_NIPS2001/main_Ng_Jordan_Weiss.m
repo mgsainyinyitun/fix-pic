@@ -17,9 +17,14 @@ if(~exist('Results','file'))
     mkdir('Results');
 end
 addpath(genpath('Results/'));
-datadir = '../../Dataset/';
+datadir = '../../fixed_data/';
 % add the test datasets
-dataname = {'3sourceIncomplete','bbcIncomplete','bbcsportIncomplete'}; 
+dataname = {
+    %'bbcsport4vbigRnSp',
+    %'100Leaves',
+    %'buaaRnSp',
+    'Mfeat.mat'
+    }; 
 numdata = length(dataname);
 nRepeat = 1; % runing times, set it to 20 in evaluation
 MAXiter = 200; % Maximum number of iterations for KMeans 
@@ -87,13 +92,15 @@ for v = 1:n_views
     % iter...
     for rtimes = 1:nRepeat
         % perform kmeans clustering on the matrix U
+        U = real(U);
         [IDX, C] = kmeans(U,c,'maxiter',MAXiter,'replicates',REPlic,'EmptyAction','singleton');
         metric = CalcMeasures(y0, IDX);
         clear IDX;
         
         ACC(rtimes) = metric(1);
         NMI(rtimes) = metric(2);
-        fprintf('=====In iteration %d=====\nACC:%.4f\tNMI:%.4f\t',rtimes,metric(1),metric(2));
+        PUR(rtimes)  = metric(3);
+        fprintf('=====In iteration %d=====\nACC:%.4f\tNMI:%.4f\t PUR:%.4f\t',rtimes,metric(1)*100,metric(2)*100,metric(3)*100);
     end
     R(v, 1) = mean(ACC);
     R(v, 2) = mean(NMI);

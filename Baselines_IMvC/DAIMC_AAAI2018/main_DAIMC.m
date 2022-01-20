@@ -8,8 +8,10 @@ if(~exist('Results','file'))
     mkdir('Results');
     addpath(genpath('Results/'));
 end
-datasetdir = '../../Dataset/';
-dataname = {'3sourceIncomplete','bbcIncomplete','bbcsportIncomplete'};
+datasetdir = '../../fixed_data/';
+dataname = {
+    'bbcsport4vbigRnSp'
+    };
 numdata = length(dataname); % data number
 for idata = 1:numdata
     datafile = [datasetdir, cell2mat(dataname(idata))];
@@ -33,7 +35,7 @@ for idata = 1:numdata
 
     label = truelabel{1};
     latentDim = length(unique(label));
-    nRepeat = 10;
+    nRepeat = 1;
     ACC = zeros(nRepeat, 1);
     NMI = zeros(nRepeat, 1);
     for f = 1:nRepeat

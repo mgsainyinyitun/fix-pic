@@ -10,8 +10,12 @@ if(~exist('Results','file'))
     mkdir('Results');
     addpath(genpath('Results/'));
 end
-datasetdir = '../../Dataset/';
-dataname = {'3sourceIncomplete','bbcIncomplete','bbcsportIncomplete'};
+%datasetdir = '../../fixed_data/';
+datasetdir = 'C:\Users\Sai Nyi\Desktop\pjt\DownloadCode\pic\fixed_data\';
+dataname = {
+   % 'bbcsport4vbigRnSp.map',
+    '100Leaves.mat',
+    };
 numdata = length(dataname); % data number
 for idata = 1:numdata
     datafile = [datasetdir, cell2mat(dataname(idata))];

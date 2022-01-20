@@ -6,4 +6,4 @@ else
     [~, indic] = max(X, [] ,2);
 end
 metric = CalcMeasures(label, indic);
-fprintf('ac: %0.4f\tnmi: %0.4f\t', metric(1), metric(2));
+fprintf('ac: %0.4f\tnmi: %0.4f\t \tpur:%0.4f', metric(1)*100, metric(2)*100,metric(3)*100);

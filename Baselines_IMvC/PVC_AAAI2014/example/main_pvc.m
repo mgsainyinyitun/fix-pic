@@ -16,7 +16,9 @@ dataname = {
     %'ORL.mat',
     %'mfeatRnSp.mat',
     %'WebKB.mat'
-    'orlRnSp.mat',
+    %'orlRnSp.mat',
+    %'caltech7.mat',
+    'buaaRnSp.mat',
     };
 numdata = length(dataname); % data number
 for idata=1:numdata

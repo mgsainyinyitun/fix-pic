@@ -9,8 +9,11 @@ if(~exist('Results','file'))
     mkdir('Results');
     addpath(genpath('Results/'));
 end
-datasetdir = '../../Dataset/';
-dataname = {'3sourceIncomplete','bbcIncomplete','bbcsportIncomplete'};
+datasetdir = '../../fixed_data/';
+dataname = {
+    %'bbcsport4vbigRnSp',
+    '100Leaves',
+    };
 numdata = length(dataname); % data number
 for idata = 1:numdata
     datafile = [datasetdir, cell2mat(dataname(idata))];
@@ -37,7 +40,7 @@ for idata = 1:numdata
     for i = 1:size(XX,2)
         XX{1, i} = XX{1, i}';    
     end
-    for f = 1:10
+    for f = 1:3
         [U, V, centroidU, log, ACC(f), NMI(f), F1(f), ARI(f), time] = MultiNMF_incomplete_original_l21(XX, W, K, label, options);
     end
     Result(1,:) = ACC;
