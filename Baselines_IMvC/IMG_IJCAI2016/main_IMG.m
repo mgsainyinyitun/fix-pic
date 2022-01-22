@@ -14,7 +14,7 @@ end
 datasetdir = 'C:\Users\Sai Nyi\Desktop\pjt\DownloadCode\pic\fixed_data\';
 dataname = {
    % 'bbcsport4vbigRnSp.map',
-    '100Leaves.mat',
+    'buaaRnSp',
     };
 numdata = length(dataname); % data number
 for idata = 1:numdata
@@ -64,7 +64,7 @@ for idata = 1:numdata
             % truthF = truelabel{1};
             numClust = length(unique(truthF));
             
-            for f = 1:10 %numFold
+            for f = 1:1 %numFold
                 % Parameters for the model
                 option.lamda=1e-2;
                 option.beta=1;

@@ -9,16 +9,16 @@ if(~exist('Results','file'))
     mkdir('Results');
 end
 addpath(genpath('Results/'));
-datasetdir = '../../../fixed_data/';
+datasetdir = '../../../fixed_data/20missing/';
 dataname = {
-    %'bbcsport4vbigRnSp',
+    'bbcsport4vbigRnSp',
     %'100Leaves.mat',
     %'ORL.mat',
     %'mfeatRnSp.mat',
     %'WebKB.mat'
     %'orlRnSp.mat',
     %'caltech7.mat',
-    'buaaRnSp.mat',
+    %'buaaRnSp.mat',
     };
 numdata = length(dataname); % data number
 for idata=1:numdata
@@ -68,7 +68,7 @@ for idata=1:numdata
             % truthF = truelabel{1};
             numClust = length(unique(truthF));
             
-            for f = 1:10 %numFold
+            for f = 1:1 %numFold
               option.lamda=1e-2; 
               option.latentdim=numClust;
               [Ux Uy P2 P1 P3 objValue ACC(f) NMI(f) Purity ARI(f)] = PVCclust(x_paired',y_paired',x_single',y_single',numClust,truthF,option);

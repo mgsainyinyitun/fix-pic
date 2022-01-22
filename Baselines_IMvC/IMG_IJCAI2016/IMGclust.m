@@ -35,5 +35,5 @@ nmi = mean(nmii);
 F1 = mean(Fi);
 ARI = mean(ARii);
 
-fprintf('acc: %f(%f)\tnmi: %f(%f)\n', Acc, std(Acci), nmi, std(nmii));
+fprintf('acc: %f(%f)\tnmi: %f(%f)  pur:%f\n', Acc*100, std(Acci), nmi*100, std(nmii), F1*100);
 

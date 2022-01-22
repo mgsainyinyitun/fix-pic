@@ -6,13 +6,13 @@ clc
 %load('./database/mfeatRnSp.mat');
 %load('./database/WebKB.mat');
 %load('./database/orlRnSp.mat');
-%load('./database/caltech7.mat');
+load('./database/caltech7.mat');
 %load('./database/buaaRnSp.mat');
-load('./database/Mfeat.mat');
+%load('./database/Mfeat.mat');
 %load('./database/3sources.mat');
 f = 1;
 X = data; % complete data
-folds = miss10;
+folds = miss50;
 ind_folds = folds{f};
 truthF = truth;
 numClust = length(unique(truthF));
@@ -30,6 +30,6 @@ data = Y;
 
 clearvars -except data truelabel index
 
-save('fixed_data/Mfeat.mat');
+save('fixed_data/50missing/caltech7.mat');
 
 
